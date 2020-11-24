@@ -1,2 +1,3 @@
 # msdc-client
-MSDC QGIS Client
+Malawi Survey Data Collector (MSDC) QGIS Client for Importing Field Data into Database.
+

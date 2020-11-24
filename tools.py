@@ -660,8 +660,8 @@ def add_to_canvas():
 
 
 if __name__ == '__main__':
-    _plugin_dir = 'D:\RCMRD\IT_System\Dev\msdc_client'
-    sample = 'D:\RCMRD\IT_System\Data\imports\\40000_4_2019_11_06_12_23_30_msdc.geojson'
+    _plugin_dir = 'D:\msdc_client'
+    sample = 'D:\Data\imports\\40000_4_2019_11_06_12_23_30_msdc.geojson'
     dbsettings = {
         "host": "localhost",
         "port": "5432",
