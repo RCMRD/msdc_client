@@ -258,9 +258,10 @@ def upload_to_db(dbconfig, data_fields, parcel_geom, parcel_area, centroid_n, ce
     # applicants table
     applicants = data_fields['applicant_TBL']
     for applicant in applicants:
-        if applicant['applicant_gender']:
+        try:
+            applicant['applicant_gender']
             gender = applicant['applicant_gender']
-        else:
+        except:
             gender = ""
 
         applicant_fields = [
