@@ -258,6 +258,11 @@ def upload_to_db(dbconfig, data_fields, parcel_geom, parcel_area, centroid_n, ce
     # applicants table
     applicants = data_fields['applicant_TBL']
     for applicant in applicants:
+        if applicant['applicant_gender']:
+            gender = applicant['applicant_gender']
+        else:
+            gender = ""
+
         applicant_fields = [
             applicant['key_upin'],  # parcel_upin
             applicant['applicant_name'],  # name
@@ -271,12 +276,13 @@ def upload_to_db(dbconfig, data_fields, parcel_geom, parcel_area, centroid_n, ce
             applicant['applicant_joint'],  # joint
             applicant['key_index'],  # key_index
             applicant['key_grouped_index'],  # grouped_index
+            gender, # gender
             upin_code,  # upin_code
             dt_now # imported
         ]
 
         cur.execute("INSERT INTO applicants (parcel_upin, name, national_id, marital_status, address, \
-        signature, nationality, photo, id_photo, joint, key_index, grouped_index, upin_code, imported) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", applicant_fields)
+        signature, nationality, photo, id_photo, joint, key_index, grouped_index, gender, upin_code, imported) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", applicant_fields)
 
     # children table
     children = data_fields['children_TBL']
